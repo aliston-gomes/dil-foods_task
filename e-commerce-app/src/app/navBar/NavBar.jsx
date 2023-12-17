@@ -12,7 +12,7 @@ const NavBar = () => {
             <Link href="/wishlist">
             <BsBagHeartFill className="md:text-2xl lg:text-2xl text-xl "/>
             </Link>
-            <Link href="/wishlist">
+            <Link href="/cart">
             <BsFillCartFill className="md:text-2xl lg:text-2xl text-xl "/>
             </Link>
             </div>
