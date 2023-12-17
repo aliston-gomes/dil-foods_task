@@ -20,7 +20,7 @@ const ProductListing = () => {
   return (
     <div>
       <section className=" h-96 flex justify-center pt-2">
-        <article className="w-[98%] grid grid-cols-2 md:grid md:grid-cols-4 md:gap-4 justify-items-center lg:grid lg:grid-cols-4 lg:gap-4 xl:grid-cols-7">
+        <article className="w-[98%] grid grid-cols-2 md:grid gap-4 md:grid-cols-4 md:gap-4 justify-items-center lg:grid lg:grid-cols-4 lg:gap-4 xl:grid-cols-7">
           {product.length > 1 &&
             product.map((item, index) => {
               return (
