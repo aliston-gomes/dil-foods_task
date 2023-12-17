@@ -1,7 +1,7 @@
 "use client";
 import AxiosInstance from "@/axiosInstance/AxiosInstance";
-import ProductCard from "@/components/ProductCard";
 import React, { useEffect, useState } from "react";
+import ProductCard from "./components/page";
 
 const ProductListing = () => {
   const [product, setProducts] = useState([]);
@@ -32,6 +32,7 @@ const ProductListing = () => {
                       itemDescription: item.description,
                       itemPrice: item.price,
                       itemImage: item.image,
+                      productId:item.id,
                     }}
                   />
                 </React.Fragment>
