@@ -20,12 +20,20 @@ const ProductListing = () => {
   return (
     <div>
       <section className=" h-96 flex justify-center pt-2">
-        <article className="w-[98%] grid grid-rows-1 grid-flow-col gap-4 md:grid-rows-1 md:grid-flow-col md:gap-4 md:grid lg:grid-rows-1 lg:grid-flow-col lg:gap-4 lg:grid">
+        <article className="w-[98%] grid grid-cols-2 md:grid md:grid-cols-4 md:gap-4 justify-items-center lg:grid lg:grid-cols-4 lg:gap-4 xl:grid-cols-7">
           {product.length > 1 &&
             product.map((item, index) => {
               return (
                 <React.Fragment key={item.id}>
-                  <ProductCard />
+                  <ProductCard
+                    cardData={{
+                      itemName: item.title,
+                      itemRating: item.rating,
+                      itemDescription: item.description,
+                      itemPrice: item.price,
+                      itemImage: item.image,
+                    }}
+                  />
                 </React.Fragment>
               );
             })}
