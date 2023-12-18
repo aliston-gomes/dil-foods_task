@@ -1,4 +1,6 @@
 "use client";
+import { add_to_cart } from "@/lib/features/cartSclice";
+import { useAppDispatch } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import {
@@ -10,6 +12,7 @@ import {
 } from "react-icons/fa";
 
 const ProductCard = props => {
+  const dispatch = useAppDispatch();
   const productId = props.cardData.productId;
   const router = useRouter();
   const [isWishlisted, setWishlisted] = useState(false);
@@ -102,8 +105,10 @@ const ProductCard = props => {
           </small>
         )}
       </div>
-      <div className="p-0 pl-1 md:pl-2">
-        {props.cardData.itemDescription.slice(0, 20) + "..."}
+      <div className="p-0 pl-1 md:pl-2 text-sm">
+        {window.screen.availWidth > 1000
+          ? props.cardData.itemDescription.slice(0, 25) + "..."
+          : props.cardData.itemDescription.slice(0, 17) + "..."}
       </div>
       <div className="text-zinc-800 font-semibold pt-1 pl-2">
         {props.cardData.itemPrice}
@@ -116,7 +121,10 @@ const ProductCard = props => {
           />
         ) : (
           <FaRegHeart
-            onClick={addToWishlist}
+            onClick={() => {
+              dispatch(add_to_cart(productId));
+              addToWishlist();
+            }}
             style={{ color: "#E64848", fontSize: "20px" }}
           />
         )}
