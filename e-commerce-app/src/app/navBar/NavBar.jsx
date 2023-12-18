@@ -5,7 +5,7 @@ import { BsBagHeartFill,BsFillCartFill } from "react-icons/bs";
 const NavBar = () => {
   return (
     <div>
-      <section className="h-14 md:h-20 lg:h-20 bg-[#E64848] flex items-center justify-center w-full ">
+      <section className="h-14 md:h-16 lg:h-16 bg-[#E64848] flex items-center justify-center w-full ">
         <article className="flex items-center justify-between w-[90%]  h-14 sm:h-32 md:h-20 lg:h-20">
           <Link href="/">Brand Logo</Link>
           <div className="flex md:gap-4 gap-6 lg:gap-10">
