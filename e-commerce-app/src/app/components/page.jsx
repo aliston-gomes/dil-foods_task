@@ -1,8 +1,13 @@
 "use client";
-import { add_to_cart } from "@/lib/features/cartSclice";
+import AxiosInstance from "@/axiosInstance/AxiosInstance";
+import {
+  add_to_wishlist,
+  removeFromWishlist,
+  getApiProducts,
+} from "@/lib/features/cartSclice";
 import { useAppDispatch } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaRegHeart,
   FaHeart,
@@ -16,8 +21,35 @@ const ProductCard = props => {
   const productId = props.cardData.productId;
   const router = useRouter();
   const [isWishlisted, setWishlisted] = useState(false);
+  useEffect(() => {
+    dispatch(getApiProducts());
+  }, [isWishlisted]);
+  const postApiData = async () => {
+    try {
+      const response = await AxiosInstance.patch(`/products/${productId}/`, {
+        in_Cart: true,
+      });
+      console.log(response, "hello");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const postApiData_ = async () => {
+    try {
+      const response = await AxiosInstance.patch(`/products/${productId}/`, {
+        in_Cart: false,
+      });
+      console.log(response, "hello");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const addToWishlist = () => {
-    setWishlisted(prevState => !prevState);
+    setWishlisted(true);
+  };
+
+  const removeFromCart = async () => {
+    setWishlisted(false);
   };
 
   return (
@@ -113,17 +145,23 @@ const ProductCard = props => {
       <div className="text-zinc-800 font-semibold pt-1 pl-2">
         {props.cardData.itemPrice}
       </div>
+
       <div className="flex items-center justify-end pr-4">
         {isWishlisted === true ? (
           <FaHeart
-            onClick={addToWishlist}
+            onClick={() => {
+              dispatch(removeFromWishlist(props.cardData.item_));
+              removeFromCart();
+              postApiData_();
+            }}
             style={{ color: "#E64848", fontSize: "20px" }}
           />
         ) : (
           <FaRegHeart
             onClick={() => {
-              dispatch(add_to_cart(productId));
+              dispatch(add_to_wishlist(props.cardData.item_));
               addToWishlist();
+              postApiData();
             }}
             style={{ color: "#E64848", fontSize: "20px" }}
           />
