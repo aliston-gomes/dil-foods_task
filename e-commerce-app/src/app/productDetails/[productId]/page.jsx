@@ -2,21 +2,17 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import AxiosInstance from "@/axiosInstance/AxiosInstance";
-import dummyData from "../../dummy_data/products";
 import {
-  FaRegHeart,
-  FaHeart,
-  addToWishlist,
   FaStar,
   FaStarHalf,
 } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { addToCart } from "@/lib/features/cartSclice";
+import { addToCart, add_to_wishlist } from "@/lib/features/cartSclice";
 import { toast } from "react-toastify";
 
 const ProductDetails = ({ params }) => {
   const disPatch = useAppDispatch();
-  const [total_product, setProducts] = useState(dummyData);
+  const [total_product, setProducts] = useState([]);
   const [product, SetProducts] = useState([]);
   const [product_ID, SetProductId] = useState(params.productId);
   useEffect(() => {
@@ -27,18 +23,17 @@ const ProductDetails = ({ params }) => {
       }
     });
 
-    // ========FAKE STORE API NOT WORKING
-    // const fetchApi = async () => {
-    //   try {
-    //     const response = await AxiosInstance.get(
-    //       `/products/${params.productId}`
-    //     );
-    //     SetProducts(response.data);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
-    // fetchApi();
+    const fetchApi = async () => {
+      try {
+        const response = await AxiosInstance.get(
+          `/products/${params.productId}`
+        );
+        SetProducts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchApi();
   }, [product_ID]);
   console.log(product, "RESPONSE");
   return (
@@ -118,31 +113,22 @@ const ProductDetails = ({ params }) => {
           </article>
           <article className="font-bold pl-3">MRP ₹{product.price}</article>
           <article className="flex items-center gap-9 p-3">
-            {product.in_Cart == false ? (
-              <button
-                onClick={() => {
-                  disPatch(addToCart(product));
-                }}
-                type="button"
-                className="p-2 bg-[#E64848] border rounded-md hover:bg-[#efefef] hover:text-[#E64848] active:bg-[#efefef] active:text-[#E64848]"
-              >
-                Add to Cart
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  disPatch(addToCart(product));
-                }}
-                type="button"
-                className="p-2 bg-[#E64848] border rounded-md hover:bg-[#efefef] hover:text-[#E64848] active:bg-[#efefef] active:text-[#E64848]"
-              >
-                Remove from Cart
-              </button>
-            )}
+            <button
+              onClick={() => {
+                disPatch(addToCart(product));
+              }}
+              type="button"
+              className="p-2 text-[#efefef] bg-[#E64848] border rounded-md hover:bg-[#efefef] hover:text-[#E64848] active:bg-[#efefef] active:text-[#E64848]"
+            >
+              Add to Cart
+            </button>
 
             <button
+              onClick={() => {
+                disPatch(add_to_wishlist(product));
+              }}
               type="button"
-              className="p-2 borde rounded-md border-2 hover:border-[#E64848]"
+              className="p-2 borde rounded-md border-2 border-[#E64848] hover:bg-[#E64848] hover:text-[#efefef]"
             >
               Add to Wishlist
             </button>
