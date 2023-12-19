@@ -20,16 +20,29 @@ ii]**STEPS TO RUN THE PROJECT.**
     2]STEPS TO RUN THE JSON SERVER
         2.1]get inside the SERVER directory and run $npm run dev
 
-iii]**PACKAGES USED**
-    1]"@reduxjs/toolkit": "^2.0.1",
-    2]"axios": "^1.6.2",
-    3]"next": "14.0.4",
-    4]"react": "^18",
-    5]"react-dom": "^18",
-    6]"react-icons": "^4.12.0",
-    7]"react-redux": "^9.0.4",
-    8]"react-toastify": "^9.1.3"
-    9]"tailwindcss": "^3.3.0"(pre installed with project)
+## Packages Used
+
+* [@reduxjs/toolkit](https://redux-toolkit.js.org/): State management library
+* axios: HTTP client for making API requests
+* next: Framework for building server-rendered and static web applications
+* react: JavaScript library for building user interfaces
+* react-dom: DOM manipulation library for react
+* react-icons: Provides a set of icon components
+* react-redux: Bindings for react and redux
+* react-toastify: Library for displaying notifications
+* tailwindcss: Utility-first CSS framework (pre-installed)
+
+## Features
+
+* Add and remove items from wishlist
+* Add and remove items from cart
+* View cart summary and total
+* Checkout functionality
+* Dynamic routing using app router
+* Responsive design for optimal viewing on different devices
+
+## Additional Notes
+* Refer to the project code for further details and implementation insights.
 
 iv]**FEATURES OF THE PROJECT**
     1]add to wishlit 
