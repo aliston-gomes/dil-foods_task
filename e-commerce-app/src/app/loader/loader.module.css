@@ -1,0 +1,12 @@
+.loader {
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        display:block;
+    }
+    100% {
+        display: none;
+    }
+    } 
