@@ -51,7 +51,7 @@ const product_cart = () => {
                   <div>₹{item.price}</div>
                 </section>
                 <button
-                  className="p-1 border rounded-md bg-[#E64848]"
+                  className="p-1 border rounded-md bg-[#E64848] text-[#fff] hover:bg-[#fff] hover:text-[#E64848] border-[#E64848]"
                   onClick={() => {
                     dispatch(removeFromCart(item));
                     get_total_price();
@@ -69,13 +69,17 @@ const product_cart = () => {
           </section>
         )}
       </section>
-      {data.length > 0 &&<article className="h-24 p-2 border rounded-md ">
-        <h1 className="text-lg">
+      {data.length > 0 &&<article className="h-28 p-2 border rounded-md ">
+        <h1 className="text-lg p-3">
           Cart Total:<span className="font-bold pl-2">₹ {totalPrice}</span>
         </h1>
-        <Link href="/checkout" className="p-2 border rounded-md bg-[#47A992]">
+      <div className="p-3">
+          <Link href="/checkout" className="p-2 border rounded-md bg-[#47A992]">
           Check Out
         </Link>
+      </div>
+
+      
       </article>}
       
     </>
