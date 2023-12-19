@@ -10,15 +10,15 @@ This application provides a seamless user interface and functionality for an e-c
 2. **Install project dependencies:**
 
 i]**STEPS TO INSTALL THE PROJECT AND JSON SERVER.**
-    *clone the project from the github repository
-    *get inside the project directory through terminal and run $npm install
-    *STEPS TO INSTALL THEJSON SERVER
-        *get inside the server directory and run $npm install
+*clone the project from the github repository
+*get inside the project directory through terminal and run $npm install
+*STEPS TO INSTALL THEJSON SERVER
+*get inside the server directory and run $npm install
 
 ii]**STEPS TO RUN THE PROJECT.**
-    *get inside the project directory and run $npm run dev
-    *STEPS TO RUN THE JSON SERVER
-        *get inside the SERVER directory and run $npm run dev
+   *get inside the project directory and run $npm run dev
+   *STEPS TO RUN THE JSON SERVER
+   *get inside the SERVER directory and run $npm run dev
 
 ## Packages Used
 
