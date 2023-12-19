@@ -63,7 +63,7 @@ const ProductCard = props => {
         <img
           src={props.cardData.itemImage}
           alt=""
-          className="h-24 md:h-28 lg:h-28 xl:h-28"
+          className="h-24 md:h-28 lg:h-28 xl:h-28 cursor-pointer"
         />
       </div>
       <div
@@ -154,7 +154,7 @@ const ProductCard = props => {
               removeFromCart();
               postApiData_();
             }}
-            style={{ color: "#E64848", fontSize: "20px" }}
+            style={{ color: "#E64848", fontSize: "20px",cursor:"pointer" }}
           />
         ) : (
           <FaRegHeart
@@ -163,7 +163,7 @@ const ProductCard = props => {
               addToWishlist();
               postApiData();
             }}
-            style={{ color: "#E64848", fontSize: "20px" }}
+            style={{ color: "#E64848", fontSize: "20px",cursor:"pointer" }}
           />
         )}
       </div>
