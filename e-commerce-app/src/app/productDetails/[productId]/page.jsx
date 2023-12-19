@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import AxiosInstance from "@/axiosInstance/AxiosInstance";
@@ -37,10 +38,13 @@ const ProductDetails = ({ params }) => {
   }, [product_ID]);
   console.log(product, "RESPONSE");
   return (
-    <div className="p-10">
-      <section className="h-60 md:h-80 lg:h-96 md:flex lg:flex md:items-center">
+    <div className="p-4">
+      <section className="pb-1.5">
+        <Link href="/" className="px-2 py-1 border rounded-md bg-[#efefef]">Back</Link>
+        </section>
+      <section className="h-36 md:h-76 lg:h-80 md:flex lg:flex md:items-center">
         <article className="flex items-center justify-center p-4 md:basis-1/2 lg:basis-1/4 bg-[#efefef]">
-          <img src={product.image} className="h-60 md:h-80 lg:h-96" />
+          <img src={product.image} className="h-32 md:h-76 lg:h-76" />
         </article>
         <section>
           <h1 className="font-bold pl-3 text-lg">{product.title}</h1>
