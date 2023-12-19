@@ -74,7 +74,7 @@ const product_cart = () => {
           Cart Total:<span className="font-bold pl-2">₹ {totalPrice}</span>
         </h1>
       <div className="p-3">
-          <Link href="/checkout" className="p-2 border rounded-md bg-[#47A992]">
+          <Link href="/checkoutform" className="p-2 border rounded-md bg-[#47A992]">
           Check Out
         </Link>
       </div>
