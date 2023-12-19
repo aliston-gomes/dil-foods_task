@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "https://fakestoreapi.com";
+const URL = "http://localhost:3006";
 const AxiosInstance = axios.create({
   baseURL: URL,
   headers: { "Content-type": "application/json" },
